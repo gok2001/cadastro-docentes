@@ -19,6 +19,8 @@ function App() {
 
   const [erros, setErros] = useState({});
 
+  
+
   function validar() {
     const erros = {};
 

@@ -23,6 +23,16 @@ function DocenteForm({
     setEstado,
     handleSubmit
 }) {
+
+    function formatarCpf(value) {
+        return value
+            .replace(/\D/g, "")
+            .replace(/(\d{3})(\d)/, "$1.$2")
+            .replace(/(\d{3})(\d)/, "$1.$2")
+            .replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+            .substring(0, 14);
+    }
+
     return (
         <div>
 
@@ -46,7 +56,8 @@ function DocenteForm({
                         name="cpf"
                         id="cpf"
                         value={cpf}
-                        onChange={(e) => setCpf(e.target.value)}
+                        onChange={(e) => setCpf(formatarCpf(e.target.value))}
+                        placeholder="000.000.000-00"
                     />
 
                     <label htmlFor="formacao">Formação/Área de atuação</label>

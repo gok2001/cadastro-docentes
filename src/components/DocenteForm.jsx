@@ -33,6 +33,14 @@ function DocenteForm({
             .substring(0, 14);
     }
 
+    function formatarTelefone(value) {
+        return value
+            .replace(/\D/g, "")
+            .replace(/(\d{2})(\d)/, "($1) $2")
+            .replace(/(\d{5})(\d)/, "$1-$2")
+            .substring(0, 15);
+    }
+
     return (
         <div>
 
@@ -97,7 +105,7 @@ function DocenteForm({
                         name="telefone"
                         id="telefone"
                         value={telefone}
-                        onChange={(e) => setTelefone(e.target.value)}
+                        onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
                     />
                 </fieldset>
 

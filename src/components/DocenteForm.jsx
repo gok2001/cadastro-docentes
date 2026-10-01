@@ -1,8 +1,32 @@
-function DocenteForm() {
+function DocenteForm({
+    nome,
+    setNome,
+    cpf,
+    setCpf,
+    formacao,
+    setFormacao,
+    emailInstitucional,
+    setEmailInstitucional,
+    emailParticular,
+    setEmailParticular,
+    telefone,
+    setTelefone,
+    endereco,
+    setEndereco,
+    numero,
+    setNumero,
+    cidade,
+    setCidade,
+    cep,
+    setCep,
+    estado,
+    setEstado,
+    handleSubmit
+}) {
     return (
         <div>
 
-            <form>
+            <form className="form-docente" onSubmit={handleSubmit}>
 
                 <fieldset>
                     <legend>Dados pessoais</legend>
@@ -12,6 +36,8 @@ function DocenteForm() {
                         type="text"
                         name="nome"
                         id="nome"
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
                     />
 
                     <label htmlFor="cpf">CPF</label>
@@ -19,6 +45,8 @@ function DocenteForm() {
                         type="text"
                         name="cpf"
                         id="cpf"
+                        value={cpf}
+                        onChange={(e) => setCpf(e.target.value)}
                     />
 
                     <label htmlFor="formacao">Formação/Área de atuação</label>
@@ -26,6 +54,8 @@ function DocenteForm() {
                         type="text"
                         name="formacao"
                         id="formacao"
+                        value={formacao}
+                        onChange={(e) => setFormacao(e.target.value)}
                     />
                 </fieldset>
 
@@ -37,6 +67,8 @@ function DocenteForm() {
                         type="email"
                         name="email-institucional"
                         id="email-institucional"
+                        value={emailInstitucional}
+                        onChange={(e) => setEmailInstitucional(e.target.value)}
                     />
 
                     <label htmlFor="email-particular">Email particular</label>
@@ -44,6 +76,8 @@ function DocenteForm() {
                         type="email"
                         name="email-particular"
                         id="email-particular"
+                        value={emailParticular}
+                        onChange={(e) => setEmailParticular(e.target.value)}
                     />
 
                     <label htmlFor="telefone">Telefone celular</label>
@@ -51,6 +85,8 @@ function DocenteForm() {
                         type="tel"
                         name="telefone"
                         id="telefone"
+                        value={telefone}
+                        onChange={(e) => setTelefone(e.target.value)}
                     />
                 </fieldset>
 
@@ -62,6 +98,8 @@ function DocenteForm() {
                         type="text"
                         name="endereco"
                         id="endereco"
+                        value={endereco}
+                        onChange={(e) => setEndereco(e.target.value)}
                     />
 
                     <label htmlFor="numero">Número</label>
@@ -69,6 +107,8 @@ function DocenteForm() {
                         type="text"
                         name="numero"
                         id="numero"
+                        value={numero}
+                        onChange={(e) => setNumero(e.target.value)}
                     />
 
                     <label htmlFor="cidade">Cidade</label>
@@ -76,6 +116,8 @@ function DocenteForm() {
                         type="text"
                         name="cidade"
                         id="cidade"
+                        value={cidade}
+                        onChange={(e) => setCidade(e.target.value)}
                     />
 
                     <label htmlFor="cep">CEP</label>
@@ -83,12 +125,16 @@ function DocenteForm() {
                         type="text"
                         name="cep"
                         id="cep"
+                        value={cep}
+                        onChange={(e) => setCep(e.target.value)}
                     />
 
                     <label htmlFor="estado">Estado</label>
                     <select
                         name="estado"
                         id="estado"
+                        value={estado}
+                        onChange={(e) => setEstado(e.target.value)}
                     >
                         <option value="">Escolha uma opção</option>
                         <option value="ac">AC</option>

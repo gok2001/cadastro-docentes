@@ -41,6 +41,13 @@ function DocenteForm({
             .substring(0, 15);
     }
 
+    function formatarCep(value) {
+        return value
+            .replace(/\D/g, "")
+            .replace(/(\d{5})(\d)/, "$1-$2")
+            .substring(0, 9);
+    }
+
     return (
         <div>
 
@@ -145,7 +152,7 @@ function DocenteForm({
                         name="cep"
                         id="cep"
                         value={cep}
-                        onChange={(e) => setCep(e.target.value)}
+                        onChange={(e) => setCep(formatarCep(e.target.value))}
                     />
 
                     <label htmlFor="estado">Estado</label>

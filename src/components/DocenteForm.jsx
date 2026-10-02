@@ -53,12 +53,22 @@ export default function DocenteForm({
     }
 
     return (
-        <form className="form-docente" onSubmit={handleSubmit}>
-            <div className="row">
+        <form 
+            className="container bg-body-tertiary p-4 rounded shadow-sm mb-5"
+            onSubmit={handleSubmit}
+        >
+            <h2 className="mb-4">
+                {docenteToEdit ? "Alterar Docente" : "Cadastrar Novo Docente"}
+            </h2>
+            <div className="row g-4">
                 <fieldset className="col-md-6">
-                    <legend>Dados pessoais</legend>
+                    <legend className="fs-5 fw-semibold border-bottom pb-2 mb-3">
+                        Dados pessoais
+                    </legend>
 
-                    <label htmlFor="nome">Nome Completo</label>
+                    <label className="form-label mt-3" htmlFor="nome">
+                        Nome Completo
+                    </label>
                     <input
                         type="text"
                         name="nome"
@@ -71,7 +81,9 @@ export default function DocenteForm({
                         {erros.nome}
                     </div>
 
-                    <label htmlFor="cpf">CPF</label>
+                    <label className="form-label mt-3" htmlFor="cpf">
+                        CPF
+                    </label>
                     <input
                         type="text"
                         name="cpf"
@@ -85,7 +97,9 @@ export default function DocenteForm({
                         {erros.cpf}
                     </div>
 
-                    <label htmlFor="formacao">Formação/Área de atuação</label>
+                    <label className="form-label mt-3" htmlFor="formacao">
+                        Formação/Área de atuação
+                    </label>
                     <input
                         type="text"
                         name="formacao"
@@ -100,9 +114,13 @@ export default function DocenteForm({
                 </fieldset>
 
                 <fieldset className="col-md-6">
-                    <legend>Contatos</legend>
+                    <legend className="fs-5 fw-semibold border-bottom pb-2 mb-3">
+                        Contatos
+                    </legend>
 
-                    <label htmlFor="email-institucional">Email institucional</label>
+                    <label className="form-label mt-3" htmlFor="email-institucional">
+                        Email institucional
+                    </label>
                     <input
                         type="email"
                         name="email-institucional"
@@ -115,7 +133,9 @@ export default function DocenteForm({
                         {erros.emailInstitucional}
                     </div>
 
-                    <label htmlFor="email-particular">Email particular</label>
+                    <label className="form-label mt-3" htmlFor="email-particular">
+                        Email particular
+                    </label>
                     <input
                         type="email"
                         name="email-particular"
@@ -128,7 +148,9 @@ export default function DocenteForm({
                         {erros.emailParticular}
                     </div>
 
-                    <label htmlFor="telefone">Telefone celular</label>
+                    <label className="form-label mt-3" htmlFor="telefone">
+                        Telefone celular
+                    </label>
                     <input
                         type="tel"
                         name="telefone"
@@ -143,10 +165,14 @@ export default function DocenteForm({
                     </div>
                 </fieldset>
 
-                <fieldset className="col-md-6">
-                    <legend>Endereço</legend>
+                <fieldset className="col-md-12">
+                    <legend className="fs-5 fw-semibold border-bottom pb-2 mb-3">
+                        Endereço
+                    </legend>
 
-                    <label htmlFor="endereco">Endereço residencial</label>
+                    <label className="form-label mt-3" htmlFor="endereco">
+                        Endereço residencial
+                    </label>
                     <input
                         type="text"
                         name="endereco"
@@ -159,7 +185,9 @@ export default function DocenteForm({
                         {erros.endereco}
                     </div>
 
-                    <label htmlFor="numero">Número</label>
+                    <label className="form-label mt-3" htmlFor="numero">
+                        Número
+                    </label>
                     <input
                         type="text"
                         name="numero"
@@ -172,7 +200,9 @@ export default function DocenteForm({
                         {erros.numero}
                     </div>
 
-                    <label htmlFor="cidade">Cidade</label>
+                    <label className="form-label mt-3" htmlFor="cidade">
+                        Cidade
+                    </label>
                     <input
                         type="text"
                         name="cidade"
@@ -185,7 +215,9 @@ export default function DocenteForm({
                         {erros.cidade}
                     </div>
 
-                    <label htmlFor="cep">CEP</label>
+                    <label className="form-label mt-3" htmlFor="cep">
+                        CEP
+                    </label>
                     <input
                         type="text"
                         name="cep"
@@ -199,7 +231,9 @@ export default function DocenteForm({
                         {erros.cep}
                     </div>
 
-                    <label htmlFor="estado">Estado</label>
+                    <label className="form-label mt-3" htmlFor="estado">
+                        Estado
+                    </label>
                     <select
                         name="estado"
                         id="estado"
@@ -242,12 +276,16 @@ export default function DocenteForm({
                 </fieldset>
             </div>
 
-            <button type="submit">
+            <button
+                type="submit"
+                className="btn btn-primary mt-4 me-2"
+            >
                 {docenteToEdit ? "Alterar" : "Cadastrar"}
             </button>
             {docenteToEdit && (
                 <button
                     type="button"
+                    className="btn btn-secondary mt-4"
                     onClick={() => {
                         setDocenteToEdit(null);
                         setNome("");

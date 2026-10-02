@@ -2,6 +2,8 @@ import { useState } from 'react';
 import DocenteForm from './components/DocenteForm';
 import ListDocentes from './components/ListDocentes';
 import Login from './components/Login';
+import Menu from './components/Menu';
+import Welcome from './components/Welcome';
 
 function App() {
   const [nome, setNome] = useState("");
@@ -185,6 +187,7 @@ function App() {
 
     if (usuario === "admin" && senha === "1234") {
       setUsuarioLogado(true);
+      setActiveScreen("inicio")
     }
   }
 
@@ -217,40 +220,56 @@ function App() {
         />
       )}
 
-      <DocenteForm
-        nome={nome}
-        setNome={setNome}
-        cpf={cpf}
-        setCpf={setCpf}
-        formacao={formacao}
-        setFormacao={setFormacao}
-        emailInstitucional={emailInstitucional}
-        setEmailInstitucional={setEmailInstitucional}
-        emailParticular={emailParticular}
-        setEmailParticular={setEmailParticular}
-        telefone={telefone}
-        setTelefone={setTelefone}
-        endereco={endereco}
-        setEndereco={setEndereco}
-        numero={numero}
-        setNumero={setNumero}
-        cidade={cidade}
-        setCidade={setCidade}
-        cep={cep}
-        setCep={setCep}
-        estado={estado}
-        setEstado={setEstado}
-        docenteToEdit={docenteToEdit}
-        setDocenteToEdit={setDocenteToEdit}
-        handleSubmit={handleSubmit}
-        erros={erros}
-      />
+      {usuarioLogado && (
+        <Menu
+          activeScreen={activeScreen}
+          setActiveScreen={setActiveScreen}
+        />
 
-      <ListDocentes
-        docentes={docentes}
-        handleUpdate={handleUpdate}
-        handleDelete={handleDelete}
-      />
+      )}
+
+      {activeScreen === "inicio" && (
+        <Welcome />
+      )}
+
+      {activeScreen === "cadastrar" && (
+        <DocenteForm
+          nome={nome}
+          setNome={setNome}
+          cpf={cpf}
+          setCpf={setCpf}
+          formacao={formacao}
+          setFormacao={setFormacao}
+          emailInstitucional={emailInstitucional}
+          setEmailInstitucional={setEmailInstitucional}
+          emailParticular={emailParticular}
+          setEmailParticular={setEmailParticular}
+          telefone={telefone}
+          setTelefone={setTelefone}
+          endereco={endereco}
+          setEndereco={setEndereco}
+          numero={numero}
+          setNumero={setNumero}
+          cidade={cidade}
+          setCidade={setCidade}
+          cep={cep}
+          setCep={setCep}
+          estado={estado}
+          setEstado={setEstado}
+          docenteToEdit={docenteToEdit}
+          setDocenteToEdit={setDocenteToEdit}
+          handleSubmit={handleSubmit}
+          erros={erros}
+        />
+      )}
+
+      {activeScreen === "listar" && (
+        <ListDocentes
+          docentes={docentes}
+          handleUpdate={handleUpdate}
+          handleDelete={handleDelete}
+        />
+      )}
     </div>
   );
 }

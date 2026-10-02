@@ -83,6 +83,12 @@ function App() {
       ]);
     }
 
+    limparFormulario();
+
+    setActiveScreen("listar");
+  }
+
+  function limparFormulario() {
     setNome("");
     setCpf("");
     setFormacao("");
@@ -94,9 +100,13 @@ function App() {
     setCidade("");
     setCep("");
     setEstado("");
-
-    setActiveScreen("listar");
   }
+
+  function handleNovoCadastro() {
+    limparFormulario();
+    setDocenteToEdit(null);
+    setActiveScreen("cadastrar");
+}
 
   function validar() {
     const erros = {};
@@ -228,6 +238,7 @@ function App() {
         <Menu
           activeScreen={activeScreen}
           setActiveScreen={setActiveScreen}
+          handleNovoCadastro={handleNovoCadastro}
         />
 
       )}

@@ -1,6 +1,7 @@
 export default function Menu({
     activeScreen,
-    setActiveScreen
+    setActiveScreen,
+    handleNovoCadastro
 }) {
     return (
         <nav>
@@ -15,7 +16,7 @@ export default function Menu({
 
                 <button
                     className={`nav-link ${activeScreen === "cadastrar" ? "active" : ""}`}
-                    onClick={() => setActiveScreen("cadastrar")}
+                    onClick={handleNovoCadastro}
                 >
                     Cadastrar
                 </button>

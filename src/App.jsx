@@ -136,6 +136,8 @@ function App() {
         handleSubmit={handleSubmit}
         erros={erros}
       />
+
+      <ListDocentes docentes={docentes} />
     </div>
   );
 }

@@ -17,6 +17,8 @@ function ListDocentes({ docentes }) {
                             <td>{docente.nome}</td>
                             <td>{docente.formacao}</td>
                             <td>{docente.emailInstitucional}</td>
+                            <button>Alterar</button>
+                            <button>Remover</button>
                         </tr>
                     ))}
                 </tbody>

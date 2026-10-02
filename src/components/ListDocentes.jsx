@@ -1,4 +1,7 @@
-function ListDocentes({ docentes }) {
+function ListDocentes({
+    docentes,
+    handleDelete
+}) {
     return (
         <div className="table-responsive">
             <table className="table table-striped align-middle">
@@ -18,7 +21,7 @@ function ListDocentes({ docentes }) {
                             <td>{docente.nome}</td>
                             <td>{docente.formacao}</td>
                             <td>{docente.emailInstitucional}</td>
-                            <td><button>Alterar</button> <button>Remover</button></td>
+                            <td><button>Alterar</button> <button onClick={() => handleDelete(docente.id)}>Remover</button></td>
                         </tr>
                     ))}
                 </tbody>

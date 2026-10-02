@@ -121,6 +121,11 @@ function App() {
     return erros;
   }
 
+  function handleDelete(id) {
+    const listaFiltrada = docentes.filter((docente) => docente.id !== id);
+    setDocentes(listaFiltrada);
+  }
+
   return (
     <div>
       <DocenteForm
@@ -150,7 +155,10 @@ function App() {
         erros={erros}
       />
 
-      <ListDocentes docentes={docentes} />
+      <ListDocentes
+        docentes={docentes}
+        handleDelete={handleDelete}
+      />
     </div>
   );
 }

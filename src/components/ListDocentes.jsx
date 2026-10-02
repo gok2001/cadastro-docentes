@@ -1,5 +1,6 @@
 function ListDocentes({
     docentes,
+    handleUpdate,
     handleDelete
 }) {
     return (
@@ -21,7 +22,10 @@ function ListDocentes({
                             <td>{docente.nome}</td>
                             <td>{docente.formacao}</td>
                             <td>{docente.emailInstitucional}</td>
-                            <td><button>Alterar</button> <button onClick={() => handleDelete(docente.id)}>Remover</button></td>
+                            <td>
+                                <button onClick={() => handleUpdate(docente)}>Alterar</button>
+                                <button onClick={() => handleDelete(docente.id)}>Remover</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

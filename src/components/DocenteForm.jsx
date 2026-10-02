@@ -21,6 +21,8 @@ function DocenteForm({
     setCep,
     estado,
     setEstado,
+    docenteToEdit,
+    setDocenteToEdit,
     handleSubmit,
     erros
 }) {
@@ -121,7 +123,7 @@ function DocenteForm({
                         id="email-particular"
                         value={emailParticular}
                         onChange={(e) => setEmailParticular(e.target.value)}
-                        className="form-control"
+                        className={erros.emailParticular ? "form-control is-invalid" : "form-control"}
                     />
                     <div className="invalid-feedback">
                         {erros.emailParticular}
@@ -240,7 +242,30 @@ function DocenteForm({
                     </div>
                 </fieldset>
 
-                <button type="submit">Cadastrar</button>
+                <button type="submit">
+                    {docenteToEdit ? "Alterar" : "Cadastrar"}
+                </button>
+                {docenteToEdit && (
+                    <button
+                        type="button"
+                        onClick={() => {
+                            setDocenteToEdit(null);
+                            setNome("");
+                            setCpf("");
+                            setFormacao("");
+                            setEmailInstitucional("");
+                            setEmailParticular("");
+                            setTelefone("");
+                            setEndereco("");
+                            setNumero("");
+                            setCidade("");
+                            setCep("");
+                            setEstado("");
+                        }}
+                    >
+                        Cancelar
+                    </button>
+                )}
 
             </form>
 

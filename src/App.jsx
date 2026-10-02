@@ -19,6 +19,8 @@ function App() {
 
   const [docentes, setDocentes] = useState([]);
 
+  const [docenteToEdit, setDocenteToEdit] = useState(null);
+
   const [erros, setErros] = useState({});
 
   function handleSubmit(e) {
@@ -30,23 +32,46 @@ function App() {
       return;
     }
 
-    setDocentes([
-      ...docentes,
-      {
-        "id": crypto.randomUUID(),
-        "nome": nome,
-        "cpf": cpf,
-        "formacao": formacao,
-        "emailInstitucional": emailInstitucional,
-        "emailParticular": emailParticular,
-        "telefone": telefone,
-        "endereco": endereco,
-        "numero": numero,
-        "cidade": cidade,
-        "cep": cep,
-        "estado": estado
-      }
-    ]);
+    if (docenteToEdit) {
+      const listaAtualizada = docentes.map((docente) =>
+        docente.id === docenteToEdit ? { 
+          ...docente,
+          "nome": nome,
+          "cpf": cpf,
+          "formacao": formacao,
+          "emailInstitucional": emailInstitucional,
+          "emailParticular": emailParticular,
+          "telefone": telefone,
+          "endereco": endereco,
+          "numero": numero,
+          "cidade": cidade,
+          "cep": cep,
+          "estado": estado
+        } : docente
+      );
+
+      setDocentes(listaAtualizada);
+      setDocenteToEdit(null);
+
+    } else {
+      setDocentes([
+        ...docentes,
+        {
+          "id": crypto.randomUUID(),
+          "nome": nome,
+          "cpf": cpf,
+          "formacao": formacao,
+          "emailInstitucional": emailInstitucional,
+          "emailParticular": emailParticular,
+          "telefone": telefone,
+          "endereco": endereco,
+          "numero": numero,
+          "cidade": cidade,
+          "cep": cep,
+          "estado": estado
+        }
+      ]);
+    }
 
     setNome("");
     setCpf("");
@@ -121,6 +146,21 @@ function App() {
     return erros;
   }
 
+  function handleUpdate(docente) {
+    setDocenteToEdit(docente.id);
+    setNome(docente.nome);
+    setCpf(docente.cpf);
+    setFormacao(docente.formacao);
+    setEmailInstitucional(docente.emailInstitucional);
+    setEmailParticular(docente.emailParticular);
+    setTelefone(docente.telefone);
+    setEndereco(docente.endereco);
+    setNumero(docente.numero);
+    setCidade(docente.cidade);
+    setCep(docente.cep);
+    setEstado(docente.estado);
+  }
+
   function handleDelete(id) {
     const listaFiltrada = docentes.filter((docente) => docente.id !== id);
     setDocentes(listaFiltrada);
@@ -151,12 +191,15 @@ function App() {
         setCep={setCep}
         estado={estado}
         setEstado={setEstado}
+        docenteToEdit={docenteToEdit}
+        setDocenteToEdit={setDocenteToEdit}
         handleSubmit={handleSubmit}
         erros={erros}
       />
 
       <ListDocentes
         docentes={docentes}
+        handleUpdate={handleUpdate}
         handleDelete={handleDelete}
       />
     </div>

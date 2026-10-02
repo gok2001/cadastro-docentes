@@ -101,6 +101,8 @@ function App() {
 
     if (!cep) {
       erros.cep = "CEP obrigatório";
+    } else if (cep.length !== 9) {
+      erros.cep = "Formato de CEP inválido";
     }
 
     if (!estado) {

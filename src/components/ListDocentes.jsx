@@ -4,33 +4,60 @@ export default function ListDocentes({
     handleDelete
 }) {
     return (
-        <div className="table-responsive">
-            <table className="table table-striped align-middle">
+        <div className="container">
+            <div className="d-flex justify-content-between align-items-center mb-3">
+                <h2>Docentes cadastrados</h2>
+            </div>
 
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Formação</th>
-                        <th>Email institucional</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
+            <div className="table-responsive shadow-sm rounded">
+                <table className="table table-striped table-hover align-middle mb-0">
 
-                <tbody>
-                    {docentes.map((docente) => (
-                        <tr key={docente.id}>
-                            <td>{docente.nome}</td>
-                            <td>{docente.formacao}</td>
-                            <td>{docente.emailInstitucional}</td>
-                            <td>
-                                <button onClick={() => handleUpdate(docente)}>Alterar</button>
-                                <button onClick={() => handleDelete(docente.id)}>Remover</button>
-                            </td>
+                    <thead className="table-dark">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Formação</th>
+                            <th>Email institucional</th>
+                            <th>Ações</th>
                         </tr>
-                    ))}
-                </tbody>
+                    </thead>
 
-            </table>
+                    <tbody>
+                        {docentes.length === 0 && (
+                            <tr>
+                                <td
+                                    colSpan="4"
+                                    className="text-center text-body-secondary py-4"
+                                >
+                                    Nenhum docente cadastrado.
+                                </td>
+                            </tr>
+                        )}
+
+                        {docentes.map((docente) => (
+                            <tr key={docente.id}>
+                                <td>{docente.nome}</td>
+                                <td>{docente.formacao}</td>
+                                <td>{docente.emailInstitucional}</td>
+                                <td>
+                                    <button
+                                        className="btn btn-warning btn-sm me-2"
+                                        onClick={() => handleUpdate(docente)}
+                                    >
+                                        Alterar
+                                    </button>
+                                    <button 
+                                        className="btn btn-danger btn-sm"
+                                        onClick={() => handleDelete(docente.id)}
+                                    >
+                                        Remover
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+
+                </table>
+            </div>
         </div>
     );
 }

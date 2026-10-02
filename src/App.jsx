@@ -79,6 +79,8 @@ function App() {
 
     if (!emailInstitucional) {
       erros.emailInstitucional = "Email institucional obrigatório";
+    } else if (!emailInstitucional.includes("@")) {
+      erros.emailInstitucional = "Formato de email inválido";
     }
 
     if (!telefone) {

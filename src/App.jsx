@@ -83,6 +83,8 @@ function App() {
 
     if (!telefone) {
       erros.telefone = "Telefone obrigatório";
+    } else if (telefone.length !== 15) {
+      erros.telefone = "Formato de telefone inválido";
     }
 
     if (!endereco) {

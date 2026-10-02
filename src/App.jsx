@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import DocenteForm from './components/DocenteForm';
 import ListDocentes from './components/ListDocentes';
+import Login from './components/Login';
 
 function App() {
   const [nome, setNome] = useState("");
@@ -18,10 +19,15 @@ function App() {
   const [estado, setEstado] = useState("");
 
   const [docentes, setDocentes] = useState([]);
-
   const [docenteToEdit, setDocenteToEdit] = useState(null);
 
   const [erros, setErros] = useState({});
+
+  const [usuarioLogado, setUsuarioLogado] = useState(false);
+  const [usuario, setUsuario] = useState("");
+  const [senha, setSenha] = useState("");
+
+  const [errosAutenticacao, setErrosAutenticacao] = useState({});
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -166,8 +172,34 @@ function App() {
     setDocentes(listaFiltrada);
   }
 
+  function logar() {
+    const errosAutenticacao = {};
+
+    if (usuario !== "admin") {
+      errosAutenticacao.usuario = "Usuário inválido";
+    }
+
+    if (senha !== "1234") {
+      errosAutenticacao.senha = "Senha inválida";
+    }
+
+    setErrosAutenticacao(errosAutenticacao);
+
+    return errosAutenticacao;
+  }
+
   return (
     <div>
+      {!usuarioLogado && (
+        <Login
+          usuario={usuario}
+          setUsuario={setUsuario}
+          senha={senha}
+          setSenha={setSenha}
+          errosAutenticacao={errosAutenticacao}
+        />
+      )}
+
       <DocenteForm
         nome={nome}
         setNome={setNome}

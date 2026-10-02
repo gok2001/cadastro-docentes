@@ -52,11 +52,9 @@ export default function DocenteForm({
     }
 
     return (
-        <div>
-
-            <form className="form-docente" onSubmit={handleSubmit}>
-
-                <fieldset>
+        <form className="form-docente" onSubmit={handleSubmit}>
+            <div className="row">
+                <fieldset className="col-md-6">
                     <legend>Dados pessoais</legend>
 
                     <label htmlFor="nome">Nome Completo</label>
@@ -100,7 +98,7 @@ export default function DocenteForm({
                     </div>
                 </fieldset>
 
-                <fieldset>
+                <fieldset className="col-md-6">
                     <legend>Contatos</legend>
 
                     <label htmlFor="email-institucional">Email institucional</label>
@@ -144,7 +142,7 @@ export default function DocenteForm({
                     </div>
                 </fieldset>
 
-                <fieldset>
+                <fieldset className="col-md-6">
                     <legend>Endereço</legend>
 
                     <label htmlFor="endereco">Endereço residencial</label>
@@ -241,34 +239,32 @@ export default function DocenteForm({
                         {erros.estado}
                     </div>
                 </fieldset>
+            </div>
 
-                <button type="submit">
-                    {docenteToEdit ? "Alterar" : "Cadastrar"}
+            <button type="submit">
+                {docenteToEdit ? "Alterar" : "Cadastrar"}
+            </button>
+            {docenteToEdit && (
+                <button
+                    type="button"
+                    onClick={() => {
+                        setDocenteToEdit(null);
+                        setNome("");
+                        setCpf("");
+                        setFormacao("");
+                        setEmailInstitucional("");
+                        setEmailParticular("");
+                        setTelefone("");
+                        setEndereco("");
+                        setNumero("");
+                        setCidade("");
+                        setCep("");
+                        setEstado("");
+                    }}
+                >
+                    Cancelar
                 </button>
-                {docenteToEdit && (
-                    <button
-                        type="button"
-                        onClick={() => {
-                            setDocenteToEdit(null);
-                            setNome("");
-                            setCpf("");
-                            setFormacao("");
-                            setEmailInstitucional("");
-                            setEmailParticular("");
-                            setTelefone("");
-                            setEndereco("");
-                            setNumero("");
-                            setCidade("");
-                            setCep("");
-                            setEstado("");
-                        }}
-                    >
-                        Cancelar
-                    </button>
-                )}
-
-            </form>
-
-        </div>
+            )}
+        </form>
     );
 }

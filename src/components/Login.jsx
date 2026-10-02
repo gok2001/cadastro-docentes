@@ -7,11 +7,14 @@ export default function Login({
     errosAutenticacao
 }) {
     return (
-        <form className="form-login" onSubmit={handleLogin}>
-            <fieldset className="col-md-6">
-                <legend>Login</legend>
+        <form
+            className="container col-md-6 col-lg-4 mt-5"
+            onSubmit={handleLogin}
+        >
+            <fieldset className="card shadow-sm p-4">
+                <legend className="text-center mb-4 fw-bold">Login</legend>
 
-                <label htmlFor="usuario">Usuário</label>
+                <label className="form-label mt-3" htmlFor="usuario">Usuário</label>
                 <input
                     type="text"
                     name="usuario"
@@ -24,7 +27,7 @@ export default function Login({
                     {errosAutenticacao.usuario}
                 </div>
 
-                <label htmlFor="senha">Senha</label>
+                <label className="form-label mt-3" htmlFor="senha">Senha</label>
                 <input
                     type="password"
                     name="senha"
@@ -39,7 +42,12 @@ export default function Login({
 
             </fieldset>
 
-            <button type="submit">Logar</button>
+            <button
+                type="submit"
+                className="btn btn-primary w-100 mt-4"
+            >
+                Entrar
+            </button>
         </form>
     );
 }

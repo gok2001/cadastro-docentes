@@ -21,7 +21,8 @@ function DocenteForm({
     setCep,
     estado,
     setEstado,
-    handleSubmit
+    handleSubmit,
+    erros
 }) {
 
     function formatarCpf(value) {
@@ -63,7 +64,11 @@ function DocenteForm({
                         id="nome"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
+                        className={erros.nome ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.nome}
+                    </div>
 
                     <label htmlFor="cpf">CPF</label>
                     <input
@@ -73,7 +78,11 @@ function DocenteForm({
                         value={cpf}
                         onChange={(e) => setCpf(formatarCpf(e.target.value))}
                         placeholder="000.000.000-00"
+                        className={erros.cpf ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.cpf}
+                    </div>
 
                     <label htmlFor="formacao">Formação/Área de atuação</label>
                     <input
@@ -82,7 +91,11 @@ function DocenteForm({
                         id="formacao"
                         value={formacao}
                         onChange={(e) => setFormacao(e.target.value)}
+                        className={erros.formacao ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.formacao}
+                    </div>
                 </fieldset>
 
                 <fieldset>
@@ -95,7 +108,11 @@ function DocenteForm({
                         id="email-institucional"
                         value={emailInstitucional}
                         onChange={(e) => setEmailInstitucional(e.target.value)}
+                        className={erros.emailInstitucional ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.emailInstitucional}
+                    </div>
 
                     <label htmlFor="email-particular">Email particular</label>
                     <input
@@ -104,6 +121,7 @@ function DocenteForm({
                         id="email-particular"
                         value={emailParticular}
                         onChange={(e) => setEmailParticular(e.target.value)}
+                        className="form-control"
                     />
 
                     <label htmlFor="telefone">Telefone celular</label>
@@ -113,7 +131,12 @@ function DocenteForm({
                         id="telefone"
                         value={telefone}
                         onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
+                        placeholder="(00) 00000-0000"
+                        className={erros.telefone ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.telefone}
+                    </div>
                 </fieldset>
 
                 <fieldset>
@@ -126,7 +149,11 @@ function DocenteForm({
                         id="endereco"
                         value={endereco}
                         onChange={(e) => setEndereco(e.target.value)}
+                        className={erros.endereco ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.endereco}
+                    </div>
 
                     <label htmlFor="numero">Número</label>
                     <input
@@ -135,7 +162,11 @@ function DocenteForm({
                         id="numero"
                         value={numero}
                         onChange={(e) => setNumero(e.target.value)}
+                        className={erros.numero ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.numero}
+                    </div>
 
                     <label htmlFor="cidade">Cidade</label>
                     <input
@@ -144,7 +175,11 @@ function DocenteForm({
                         id="cidade"
                         value={cidade}
                         onChange={(e) => setCidade(e.target.value)}
+                        className={erros.cidade ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.cidade}
+                    </div>
 
                     <label htmlFor="cep">CEP</label>
                     <input
@@ -153,7 +188,12 @@ function DocenteForm({
                         id="cep"
                         value={cep}
                         onChange={(e) => setCep(formatarCep(e.target.value))}
+                        placeholder="00000-000"
+                        className={erros.cep ? "form-control is-invalid" : "form-control"}
                     />
+                    <div className="invalid-feedback">
+                        {erros.cep}
+                    </div>
 
                     <label htmlFor="estado">Estado</label>
                     <select
@@ -161,6 +201,7 @@ function DocenteForm({
                         id="estado"
                         value={estado}
                         onChange={(e) => setEstado(e.target.value)}
+                        className={erros.estado ? "form-control is-invalid" : "form-control"}
                     >
                         <option value="">Escolha uma opção</option>
                         <option value="ac">AC</option>
@@ -191,6 +232,9 @@ function DocenteForm({
                         <option value="se">SE</option>
                         <option value="to">TO</option>
                     </select>
+                    <div className="invalid-feedback">
+                        {erros.estado}
+                    </div>
                 </fieldset>
 
                 <button type="submit">Cadastrar</button>

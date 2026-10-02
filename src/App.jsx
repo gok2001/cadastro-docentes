@@ -134,6 +134,7 @@ function App() {
         estado={estado}
         setEstado={setEstado}
         handleSubmit={handleSubmit}
+        erros={erros}
       />
     </div>
   );

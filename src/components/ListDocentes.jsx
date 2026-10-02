@@ -20,7 +20,7 @@ function ListDocentes({ docentes }) {
                         </tr>
                     ))}
                 </tbody>
-                
+
             </table>
         </div>
     );

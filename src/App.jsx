@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import DocenteForm from './components/DocenteForm';
+import ListDocentes from './components/ListDocentes';
 
 function App() {
   const [nome, setNome] = useState("");
@@ -19,7 +21,44 @@ function App() {
 
   const [erros, setErros] = useState({});
 
-  
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const erros = validar();
+
+    if (Object.keys(erros).lenght > 0) {
+      return;
+    }
+
+    setDocentes([
+      ...docentes,
+      {
+        "nome": nome,
+        "cpf": cpf,
+        "formacao": formacao,
+        "emailInstitucional": emailInstitucional,
+        "emailParticular": emailParticular,
+        "telefone": telefone,
+        "endereco": endereco,
+        "numero": numero,
+        "cidade": cidade,
+        "cep": cep,
+        "estado": estado
+      }
+    ]);
+
+    setNome("");
+    setCpf("");
+    setFormacao("");
+    setEmailInstitucional("");
+    setEmailParticular("");
+    setTelefone("");
+    setEndereco("");
+    setNumero("");
+    setCidade("");
+    setCep("");
+    setEstado("");
+  }
 
   function validar() {
     const erros = {};
@@ -68,6 +107,36 @@ function App() {
 
     return erros;
   }
+
+  return (
+    <div>
+      <DocenteForm
+        nome={nome}
+        setNome={setNome}
+        cpf={cpf}
+        setCpf={setCpf}
+        formacao={formacao}
+        setFormacao={setFormacao}
+        emailInstitucional={emailInstitucional}
+        setEmailInstitucional={setEmailInstitucional}
+        emailParticular={emailParticular}
+        setEmailParticular={setEmailParticular}
+        telefone={telefone}
+        setTelefone={setTelefone}
+        endereco={endereco}
+        setEndereco={setEndereco}
+        numero={numero}
+        setNumero={setNumero}
+        cidade={cidade}
+        setCidade={setCidade}
+        cep={cep}
+        setCep={setCep}
+        estado={estado}
+        setEstado={setEstado}
+        handleSubmit={handleSubmit}
+      />
+    </div>
+  );
 }
 
 export default App

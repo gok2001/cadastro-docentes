@@ -83,6 +83,10 @@ function App() {
       erros.emailInstitucional = "Formato de email inválido";
     }
 
+    if (emailParticular && !emailParticular.includes("@")) {
+      erros.emailParticular = "Formato de email inválido";
+    }
+
     if (!telefone) {
       erros.telefone = "Telefone obrigatório";
     } else if (telefone.length !== 15) {

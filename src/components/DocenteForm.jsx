@@ -123,6 +123,9 @@ function DocenteForm({
                         onChange={(e) => setEmailParticular(e.target.value)}
                         className="form-control"
                     />
+                    <div className="invalid-feedback">
+                        {erros.emailParticular}
+                    </div>
 
                     <label htmlFor="telefone">Telefone celular</label>
                     <input

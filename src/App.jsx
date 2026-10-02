@@ -29,6 +29,8 @@ function App() {
 
   const [errosAutenticacao, setErrosAutenticacao] = useState({});
 
+  const [activeScreen, setActiveScreen] = useState("login");
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -204,7 +206,7 @@ function App() {
 
   return (
     <div>
-      {!usuarioLogado && (
+      {!usuarioLogado && activeScreen === "login" && (
         <Login
           usuario={usuario}
           setUsuario={setUsuario}

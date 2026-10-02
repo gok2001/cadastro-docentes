@@ -1,4 +1,4 @@
-function DocenteForm({
+export default function DocenteForm({
     nome,
     setNome,
     cpf,
@@ -272,5 +272,3 @@ function DocenteForm({
         </div>
     );
 }
-
-export default DocenteForm;

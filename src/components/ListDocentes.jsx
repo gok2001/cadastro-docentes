@@ -1,4 +1,4 @@
-function ListDocentes({
+export default function ListDocentes({
     docentes,
     handleUpdate,
     handleDelete
@@ -34,5 +34,3 @@ function ListDocentes({
         </div>
     );
 }
-
-export default ListDocentes;

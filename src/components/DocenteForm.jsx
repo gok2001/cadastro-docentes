@@ -204,7 +204,7 @@ export default function DocenteForm({
                         id="estado"
                         value={estado}
                         onChange={(e) => setEstado(e.target.value)}
-                        className={erros.estado ? "form-control is-invalid" : "form-control"}
+                        className={erros.estado ? "form-select is-invalid" : "form-select"}
                     >
                         <option value="">Escolha uma opção</option>
                         <option value="ac">AC</option>

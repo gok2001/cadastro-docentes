@@ -69,6 +69,8 @@ function App() {
 
     if (!cpf) {
       erros.cpf = "CPF obrigatório";
+    } else if (cpf.length !== 14) {
+      erros.cpf = "Formato de CPF inválido";
     }
 
     if (!formacao) {

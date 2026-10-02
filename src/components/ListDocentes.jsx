@@ -13,8 +13,8 @@ function ListDocentes({ docentes }) {
                 </thead>
 
                 <tbody>
-                    {docentes.map((docente, index) => (
-                        <tr key={index}>
+                    {docentes.map((docente) => (
+                        <tr key={docente.id}>
                             <td>{docente.nome}</td>
                             <td>{docente.formacao}</td>
                             <td>{docente.emailInstitucional}</td>

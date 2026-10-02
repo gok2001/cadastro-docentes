@@ -33,6 +33,7 @@ function App() {
     setDocentes([
       ...docentes,
       {
+        "id": crypto.randomUUID(),
         "nome": nome,
         "cpf": cpf,
         "formacao": formacao,

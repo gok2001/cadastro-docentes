@@ -26,7 +26,7 @@ function App() {
 
     const erros = validar();
 
-    if (Object.keys(erros).lenght > 0) {
+    if (Object.keys(erros).length > 0) {
       return;
     }
 

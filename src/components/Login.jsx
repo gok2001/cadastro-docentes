@@ -3,10 +3,11 @@ export default function Login({
     setUsuario,
     senha,
     setSenha,
+    handleLogin,
     errosAutenticacao
 }) {
     return (
-        <form className="form-login">
+        <form className="form-login" onSubmit={handleLogin}>
             <fieldset className="col-md-6">
                 <legend>Login</legend>
 
@@ -37,6 +38,8 @@ export default function Login({
                 </div>
 
             </fieldset>
+
+            <button type="submit">Logar</button>
         </form>
     );
 }

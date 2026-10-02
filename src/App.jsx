@@ -172,7 +172,21 @@ function App() {
     setDocentes(listaFiltrada);
   }
 
-  function logar() {
+  function handleLogin(e) {
+    e.preventDefault();
+
+    const errosAutenticacao = validarLogin();
+
+    if (Object.keys(errosAutenticacao).length > 0) {
+      return;
+    }
+
+    if (usuario === "admin" && senha === "1234") {
+      setUsuarioLogado(true);
+    }
+  }
+
+  function validarLogin() {
     const errosAutenticacao = {};
 
     if (usuario !== "admin") {
@@ -196,6 +210,7 @@ function App() {
           setUsuario={setUsuario}
           senha={senha}
           setSenha={setSenha}
+          handleLogin={handleLogin}
           errosAutenticacao={errosAutenticacao}
         />
       )}

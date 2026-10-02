@@ -23,6 +23,7 @@ export default function DocenteForm({
     setEstado,
     docenteToEdit,
     setDocenteToEdit,
+    setActiveScreen,
     handleSubmit,
     erros
 }) {
@@ -260,6 +261,8 @@ export default function DocenteForm({
                         setCidade("");
                         setCep("");
                         setEstado("");
+
+                        setActiveScreen("listar");
                     }}
                 >
                     Cancelar

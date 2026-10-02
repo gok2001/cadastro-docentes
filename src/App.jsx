@@ -94,6 +94,8 @@ function App() {
     setCidade("");
     setCep("");
     setEstado("");
+
+    setActiveScreen("listar");
   }
 
   function validar() {
@@ -169,6 +171,8 @@ function App() {
     setCidade(docente.cidade);
     setCep(docente.cep);
     setEstado(docente.estado);
+
+    setActiveScreen("cadastrar");
   }
 
   function handleDelete(id) {
@@ -258,6 +262,7 @@ function App() {
           setEstado={setEstado}
           docenteToEdit={docenteToEdit}
           setDocenteToEdit={setDocenteToEdit}
+          setActiveScreen={setActiveScreen}
           handleSubmit={handleSubmit}
           erros={erros}
         />

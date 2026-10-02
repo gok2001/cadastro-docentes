@@ -8,6 +8,7 @@ function ListDocentes({ docentes }) {
                         <th>Nome</th>
                         <th>Formação</th>
                         <th>Email institucional</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
 
@@ -17,8 +18,7 @@ function ListDocentes({ docentes }) {
                             <td>{docente.nome}</td>
                             <td>{docente.formacao}</td>
                             <td>{docente.emailInstitucional}</td>
-                            <button>Alterar</button>
-                            <button>Remover</button>
+                            <td><button>Alterar</button> <button>Remover</button></td>
                         </tr>
                     ))}
                 </tbody>
